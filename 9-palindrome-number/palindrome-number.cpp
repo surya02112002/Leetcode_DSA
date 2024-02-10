@@ -19,4 +19,4 @@ public:
         int len = to_string(x).length();
         return check(x, len);
     }
-};
+}; 
