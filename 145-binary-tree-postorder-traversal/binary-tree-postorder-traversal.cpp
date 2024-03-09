@@ -9,20 +9,57 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+// public:
+//     vector<int> postorderTraversal(TreeNode* root) {
+//         vector<int> ans;
+//         postorder(root,ans);
+//         return ans;
+        
+//     }
+//     void postorder(TreeNode* root, vector<int>&arr){
+//         if(root==NULL){
+//             return ;
+//         }
+//         postorder(root->left,arr);
+//         postorder(root->right,arr);
+//         arr.push_back(root->val);
+//     }
+// };
+
+
+//itrative using two stack
+
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
-        vector<int> ans;
-        postorder(root,ans);
-        return ans;
         
-    }
-    void postorder(TreeNode* root, vector<int>&arr){
+        vector<int> postorder;
         if(root==NULL){
-            return ;
+            return postorder;
         }
-        postorder(root->left,arr);
-        postorder(root->right,arr);
-        arr.push_back(root->val);
+        stack<TreeNode*> st1, st2;
+        st1.push(root);
+        while(!st1.empty()){
+            root=st1.top();
+            st1.pop();
+            st2.push(root);
+            if(root->left!=NULL){
+                
+                st1.push(root->left);
+            }
+            if(root->right!=NULL){
+                st1.push(root->right);
+            }
+
+
+        }
+        while(!st2.empty()){
+                postorder.push_back(st2.top()->val);
+                    st2.pop();
+            }
+            return postorder;
+
     }
+
 };
