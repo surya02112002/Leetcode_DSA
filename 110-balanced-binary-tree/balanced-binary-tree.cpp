@@ -12,7 +12,7 @@
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        return dfsTree(root)!=-1;
+        return dfsTree(root)!= -1;
     }
     int dfsTree(TreeNode* root){
         if(root==NULL){
@@ -20,16 +20,18 @@ public:
         }
         int lh= dfsTree(root->left);
         if(lh==-1){
-            return-1;
+            return -1;
         }
-        int rh =dfsTree(root->right);
+        int rh=dfsTree(root->right);
         if(rh==-1){
             return -1;
         }
 
+
         if(abs(lh-rh)>1){
             return -1;
         }
-        return max(lh,rh)+1;
+        return 1+max(lh,rh);
+
     }
 };
