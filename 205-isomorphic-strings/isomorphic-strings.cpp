@@ -1,29 +1,23 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        // Use hashmaps to save the replacement for every character in the first string...
-        unordered_map <char , char> rep;
-        unordered_map <char , bool> used;
-        // Traverse all elements through the loop...
-        for(int idx = 0 ; idx < s.length() ; idx++) {
-            // If rep contains s[idx] as a key...
-            if(rep.count(s[idx])) {
-                // Check if the rep is same as the character in the other string...
-                // If not, the strings can’t be isomorphic. So, return false...
-                if(rep[s[idx]] != t[idx])
-                    return false;
+        int n1= s.size();
+        int n2= t.size();
+        if(n1!=n2){
+            return 0;
+
+        }
+        map<char,char>m1,m2;
+        for(int i=0; i<n1;i++){
+            if(m1[s[i]]== 0 && m2[t[i]]==0){
+                m1[s[i]]=t[i];
+                m2[t[i]]=s[i];
+
             }
-            // If no replacement found for first character, check if the second character has been used as the replacement for any other character in the first string...
-            else {
-                if(used[t[idx]])
-                    return false;
-                // If there exists no character whose replacement is the second character...
-                // Assign the second character as the replacement of the first character.
-                rep[s[idx]] = t[idx];
-                used[t[idx]] = true;
+            if(m1[s[i]]!=t[i]&&m2[t[i]]!=s[i]){
+                return 0;
             }
         }
-        // Otherwise, the strings are not isomorphic.
-        return true;
+        return 1;
     }
 };
