@@ -28,7 +28,7 @@ public:
     bool canPlaceFlowers(vector<int>& flowerbed, int n) {
         
         int l = flowerbed.size();
-        
+         
         if(n == 0)
             return true;
         
