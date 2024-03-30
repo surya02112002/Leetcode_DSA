@@ -18,6 +18,6 @@ public:
                 ans[i]= false;
             }
         }
-        return ans;
+        return ans; 
     }
 };
