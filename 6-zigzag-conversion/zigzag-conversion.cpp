@@ -17,7 +17,7 @@ public:
                 goDown = !goDown;
             }
             currRow += goDown ? 1 : -1;
-        }
+        } 
 
         for(const string& row : rows) {
             converted += row;
