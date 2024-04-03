@@ -12,7 +12,8 @@ public:
                     if (s[curpos + k] == s[curpos - k]) {
                         curlen += 2;
                     } else break;
-                }
+                } 
+                
                 if (curlen > maxlen) {
                     maxlen = curlen;
                     svpos = curpos;
