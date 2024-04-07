@@ -13,7 +13,7 @@ public:
             x = x - front*(pow(10,len-1)); x=x/10; len = len-2;
             return check(x,len);
         };
-    }
+    } 
 
     bool isPalindrome(int x) {
         int len = to_string(x).length();
