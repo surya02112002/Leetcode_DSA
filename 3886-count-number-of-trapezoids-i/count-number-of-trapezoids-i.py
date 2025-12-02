@@ -1,4 +1,4 @@
-#KN
+
 class Solution:
     def countTrapezoids(self, points):
         MOD = 10**9 + 7
